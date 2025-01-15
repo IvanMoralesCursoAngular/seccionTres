@@ -1,5 +1,6 @@
 import './style.css'
 // import './topics/01-basic-types'
+import './topics/02-objetc-interface'
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   Hola mundo
