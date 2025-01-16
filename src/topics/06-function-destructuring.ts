@@ -1,6 +1,6 @@
 //Interfaces
 
-interface Product {
+export interface Product {
     description: string;
     price: number;
 }
@@ -24,7 +24,7 @@ const tablet: Product = {
 
 
 //funcion para retornar el calculo de los tax
-function taxCalculation( options:TaxCalculationOptions ):[number, number] {
+export function taxCalculation( options:TaxCalculationOptions ):[number, number] {
     let total = 0;
 
     const { tax, products } = options;
