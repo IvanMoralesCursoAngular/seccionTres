@@ -24,14 +24,16 @@ const tablet: Product = {
 
 
 //funcion para retornar el calculo de los tax
-function taxCalculation( options:TaxCalculationOptions ):number[] {
+function taxCalculation( options:TaxCalculationOptions ):[number, number] {
     let total = 0;
 
-    options.products.forEach( product => {
-        total += product.price;
+    const { tax, products } = options;
+
+    products.forEach( ({ price }) => {
+        total += price;
     } );
 
-    return [total, total * options.tax ];
+    return [total, total * tax ];
 }
 
 //agrego productos al carro y le digo cuanto es de impuestos
@@ -39,11 +41,11 @@ const shoppingCart = [phone, tablet];
 const tax = 0.15;
 
 //aqui en result para hacer el calculo
-const result = taxCalculation({
+const [ total, taxTotal ] = taxCalculation({
     products: shoppingCart,
     tax
 });
 
 //lo imprimo
-console.log('Total', result[0]);
-console.log('Tax', result[1]);
+console.log('Total', total);
+console.log('Tax', taxTotal);
