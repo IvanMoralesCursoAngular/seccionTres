@@ -23,16 +23,27 @@ const audioPlayer: AudioPlayer = {
 
 //Destructuracion ->
 
-const { author } = audioPlayer.details;
+// const { author } = audioPlayer.details;
 
-//al song le puse el nombre de anotherSong
-const { 
-    song:anoherSong, 
-    soungDuration:duration
-    // details:{author} Asi se destructuraria de manera anidad pero es mas enredoso
-} = audioPlayer;
+// //al song le puse el nombre de anotherSong
+// const { 
+//     song:anoherSong, 
+//     soungDuration:duration
+//     // details:{author} Asi se destructuraria de manera anidad pero es mas enredoso
+// } = audioPlayer;
 
-console.log('Song: ', anoherSong);
-console.log('Duration: ', duration);
-console.log('Author: ', author);
+// console.log('Song: ', anoherSong);
+// console.log('Duration: ', duration);
+// console.log('Author: ', author);
+
+//Destructuracion de arreglos
+
+// tengo que escribir los , para saltarmelos, aqui saco el tercer valor lo llamo trunk y si no trae nada se le asigna el Not found por defecto
+const [ , , trunks = 'Not found' ]: string[] = ['goku', 'vegeta', 'trunk'];
+
+console.log(trunks);
+
+
+
+
 
