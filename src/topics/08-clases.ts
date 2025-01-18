@@ -1,41 +1,36 @@
 
 export class Person {
-    // public name: string;
-    // private address: string;
     
     //Es el primer metodo que se va llamar al crear una instancia de Person
+    //A ESTE tipo de codigo se le llama composicion, viene mejor que la herencia en la mayoria de los casos
     constructor( 
-        public name: string ,
-        private address: string
+        public firstName: string ,
+        public lastName: string ,
+        private address: string = 'No address'
     ) {
-        // this.name = 'Ivan'
-        // this.address = 'San Jose, CA.'
+       
     }
-    //AQUI lo que se hizo fue refactorizar el codigo, menos lineas, el mismo resultado y funcionamiento
+  
     
 }
 
-//Cree la clase Hero para que aplique herencia de Person, super( los que vienen de person los pongo aqui, los tengo que agregar al constructor)
-export class Hero extends Person {
-    
+export class Hero {
+
+    //Si te das cuenta le agregue Person al Hero, de esta manera si cambia algo a Person por alguna razon, no tiene por que afectar a Hero
     constructor(
         public alterEgo: string,
         public age: number,
         public realName: string,
-        // address: string
+        public person: Person
     ) {
-        // super(realName, address);
-        super(realName, 'San Jose, CA.');
+
     }
 }
+//Creo una instancia de Person
+const tony = new Person('tony', 'stark');
+
+//creo una instancia de Hero y le agrego la instancia de person
+const ironman = new Hero('ironMan', 45, 'Tony', tony);
 
 
-
-
-//aqui creo una instancia de persona llamada ironman (Que se note que esta fuera del scope de la clase Person)
-// const ironman = new Hero('ironMan', 45, 'Tony', 'San Jose, CA.');
-const ironman = new Hero('ironMan', 45, 'Tony');
-
-//Aqui si pongo ironman.address, si me lo permite pero no me aparece 
-//y si lo puedo poner y si se va imprimir, pero no esta bien que quede asi
 console.log(ironman);
